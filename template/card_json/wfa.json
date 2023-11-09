@@ -1,0 +1,80 @@
+{
+  "config": {
+    "wide_screen_mode": true,
+    "update_multi": true
+  },
+  "header": {
+    "template": "blue",
+    "title": {
+      "content": "DMS{category}-{event}",
+      "tag": "plain_text"
+    }
+  },
+  "elements": [
+    {
+      "tag": "markdown",
+      "content": "{message}"
+    },
+    {
+      "tag": "div",
+      "fields": [
+        {
+          "is_short": true,
+          "text": {
+            "tag": "lark_md",
+            "content": "**SubmitterName**\n{submitterName}"
+          }
+        },
+        {
+          "is_short": true,
+          "text": {
+            "tag": "lark_md",
+            "content": "**WebURL**\n<a href={webUrl}>工单链接</a>"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "action",
+      "layout": "bisected",
+      "actions": [
+        {
+          "tag": "button",
+          "text": {
+            "tag": "plain_text",
+            "content": "Approve"
+          },
+          "type": "primary",
+          "value": {
+            "uid": "dms_approve_card",
+            "name": "approve",
+            "taskId": "{taskId}",
+            "webUrl": "{webUrl}",
+            "submitterUid": "{submitterUid}",
+            "submitterName": "{submitterName}",
+            "category": "{category}",
+            "event": "{event}"
+          }
+        },
+        {
+          "tag": "button",
+          "text": {
+            "tag": "plain_text",
+            "content": "Reject"
+          },
+          "type": "danger",
+          "value": {
+            "uid": "dms_approve_card",
+            "name": "reject",
+            "taskId": "{taskId}",
+            "webUrl": "{webUrl}",
+            "submitterUid": "{submitterUid}",
+            "submitterName": "{submitterName}",
+            "category": "{category}",
+            "event": "{event}"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "config": {
+    "wide_screen_mode": true,
+    "update_multi": true
+  },
+  "header": {
+    "template": "red",
+    "title": {
+      "content": "DMS{category} - {event}",
+      "tag": "plain_text"
+    }
+  },
+  "elements": [
+    {
+      "tag": "markdown",
+      "content": "{message}"
+    },
+    {
+      "tag": "div",
+      "fields": [
+        {
+          "is_short": true,
+          "text": {
+            "tag": "lark_md",
+            "content": "**SubmitterName**\n{submitterName}"
+          }
+        },
+        {
+          "is_short": true,
+          "text": {
+            "tag": "lark_md",
+            "content": "**WebURL**\n<a href={webUrl}>工单链接</a>"
+          }
+        }
+      ]
+    }
+  ]
+}

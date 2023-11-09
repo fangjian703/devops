@@ -1,0 +1,62 @@
+{
+  "token": "{token}",
+  "card": {
+    "open_ids": ["{openIds}"],
+    "config": {
+      "wide_screen_mode": true,
+      "update_multi": true
+    },
+    "header": {
+      "template": "{titleColor}",
+      "title": {
+        "content": "DMS{category} - {event}",
+        "tag": "plain_text"
+      }
+    },
+    "elements": [
+      {
+        "tag": "div",
+        "fields": [
+          {
+            "is_short": true,
+            "text": {
+              "tag": "lark_md",
+              "content": "**TaskID**\n{taskId}"
+            }
+          }
+        ]
+      },
+      {
+        "tag": "div",
+        "fields": [
+          {
+            "is_short": true,
+            "text": {
+              "tag": "lark_md",
+              "content": "**SubmitterName**\n{submitterName}"
+            }
+          },
+          {
+            "is_short": true,
+            "text": {
+              "tag": "lark_md",
+              "content": "**WebURL**\n<a href={webUrl}>工单链接</a>"
+            }
+          }
+        ]
+      },
+      {
+        "tag": "hr"
+      },
+      {
+        "tag": "note",
+        "elements": [
+          {
+            "tag": "plain_text",
+            "content": "{msgContent}"
+          }
+        ]
+      }
+    ]
+  }
+}
