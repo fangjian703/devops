@@ -1,5 +1,0 @@
-2023-10-31 17:04:02	INFO	common/logger.go:99	devops/common.InitLogger	初始化zap日志完成!
-2023-10-31 17:04:02	INFO	routes/init_route.go:59	devops/routes.InitRoutes	初始化路由完成！
-2023-10-31 17:04:02	INFO	devops/main.go:58	main.main	Server is running at 0.0.0.0:8080/api
-2023-10-31 17:05:25	INFO	devops/main.go:69	main.main	Shutting down server...
-2023-10-31 17:05:25	INFO	devops/main.go:79	main.main	Server exiting!
