@@ -91,7 +91,8 @@ func (d DmsLogic) DmsApprovalOrder(fsBody *request.FsCardBody) (err error) {
 	TaskId, _ := strconv.ParseInt(fsBody.TaskId, 10, 64)
 
 	if fsBody.OpenChatId == config.Conf.FeiShu.ChatId {
-		taskLockKey := fsBody.TaskId + "group_lock"
+		taskLockKey := fsBody.TaskId + "_group_lock"
+		userOpenID := fsBody.OpenId
 		fsBody.OpenId, err = tools.GetChatMember()
 		if err != nil {
 			return err
@@ -122,7 +123,7 @@ func (d DmsLogic) DmsApprovalOrder(fsBody *request.FsCardBody) (err error) {
 			}
 			return nil
 		}
-		err = tools.RdbClient.SetNX(tools.Ctx, taskLockKey, fsBody.OpenId, common.ExpiredTimeRdb).Err()
+		err = tools.RdbClient.SetNX(tools.Ctx, taskLockKey, userOpenID, common.ExpiredTimeRdb).Err()
 		_, err = AliCli.ApproveOrderRequest(approvalType, TaskId)
 		if err != nil {
 			return err
